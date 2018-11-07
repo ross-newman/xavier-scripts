@@ -1,0 +1,5 @@
+# Sensoray pipeline (not working)
+gst-launch-1.0 v4l2src norm=NTSC device=/dev/video3 ! video/x-raw,width=320,height=240 ! videoconvert ! ximagesink
+
+# CSI Camera interface
+gst-launch-1.0 nvarguscamerasrc ! "video/x-raw(memory:NVMM), width=(int)1280, height=(int)720, framerate=30/1, format=(string)NV12" ! nvvidconv flip-method=2 ! video/x-raw  ! xvimagesink
